@@ -1,583 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive website mockup - Modern SaaS landing page with Tailwind CSS">
-    <title>MeshForge • AI-Powered Meshchain</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&display=swap');
-        
-        :root {
-            --primary: #a855f7;
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        .tailwind-ready .hero-bg {
-            background: linear-gradient(135deg, #1e1133 0%, #3b0764 100%);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #a855f7;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .section-header {
-            background: linear-gradient(to right, #a855f7, #c026d3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(168 85 247);
-        }
-        
-        .mobile-menu {
-            animation: slideDown 0.3s ease forwards;
-        }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockify - Photorealistic FMCG Renders in 24 Hours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
+    .nav-link { transition: all 0.2s; }
+    .nav-link:hover { color: #10b981; transform: translateY(-1px); }
+  </style>
 </head>
-<body class="tailwind-ready font-sans">
-    <!-- NAVBAR -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-screen-2xl mx-auto">
-            <div class="px-6 py-5 flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold">🔗</div>
-                    <h1 class="text-3xl font-bold tracking-[-1px] text-gray-900" style="font-family: 'Space Grotesk', sans-serif;">MeshForge</h1>
-                    <span class="text-xs font-medium px-3 py-1 bg-purple-100 text-purple-700 rounded-3xl">AI • Blockchain</span>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-x-9 text-base font-medium">
-                    <a href="#features" class="nav-link text-gray-700 hover:text-purple-600">Features</a>
-                    <a href="#how" class="nav-link text-gray-700 hover:text-purple-600">How it Works</a>
-                    <a href="#pricing" class="nav-link text-gray-700 hover:text-purple-600">Pricing</a>
-                    <a href="#blog" class="nav-link text-gray-700 hover:text-purple-600">Resources</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600">Community</a>
-                </div>
-
-                <div class="hidden md:flex items-center gap-x-4">
-                    <button onclick="toggleDarkMode()" 
-                            class="flex items-center justify-center w-10 h-10 rounded-2xl hover:bg-gray-100 text-gray-700">
-                        <i class="fa-solid fa-moon text-xl"></i>
-                    </button>
-                    <a href="#" 
-                       class="px-6 py-3 text-sm font-semibold text-gray-700 border border-gray-300 rounded-3xl hover:bg-gray-50">
-                        Log in
-                    </a>
-                    <a href="#" 
-                       class="px-6 py-3 text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl hover:shadow-xl hover:shadow-purple-500/30">
-                        Get started free
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger -->
-                <button onclick="toggleMobileMenu()" class="md:hidden w-11 h-11 flex items-center justify-center text-2xl text-gray-700">
-                    <i id="hamburger-icon" class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 mobile-menu border-t bg-white">
-                <div class="flex flex-col gap-y-4 pt-4 text-lg font-medium">
-                    <a href="#features" onclick="toggleMobileMenu()" class="py-2 px-4 hover:bg-purple-50 rounded-2xl">Features</a>
-                    <a href="#how" onclick="toggleMobileMenu()" class="py-2 px-4 hover:bg-purple-50 rounded-2xl">How it Works</a>
-                    <a href="#pricing" onclick="toggleMobileMenu()" class="py-2 px-4 hover:bg-purple-50 rounded-2xl">Pricing</a>
-                    <a href="#blog" onclick="toggleMobileMenu()" class="py-2 px-4 hover:bg-purple-50 rounded-2xl">Resources</a>
-                    <a href="#contact" onclick="toggleMobileMenu()" class="py-2 px-4 hover:bg-purple-50 rounded-2xl">Community</a>
-                    
-                    <div class="pt-6 border-t flex flex-col gap-y-3">
-                        <a href="#" class="py-4 text-center font-semibold border border-gray-300 rounded-3xl">Log in</a>
-                        <a href="#" class="py-4 text-center font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl">Get started free</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="hero-bg text-white">
-        <div class="max-w-screen-2xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md text-white text-sm font-medium px-5 py-2 rounded-3xl border border-white/30">
-                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    Now in public beta • Meshchain v2.4
-                </div>
-                
-                <h2 class="text-5xl md:text-6xl lg:text-7xl font-semibold leading-none tracking-[-2px]" style="font-family: 'Space Grotesk', sans-serif;">
-                    The future of<br>decentralized AI<br>is <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">mesh-powered</span>
-                </h2>
-                
-                <p class="text-xl text-purple-100 max-w-lg">
-                    Connect. Verify. Scale. MeshForge turns any AI model into a decentralized, tamper-proof network with real-time blockchain verification.
-                </p>
-                
-                <div class="flex flex-wrap gap-4">
-                    <button onclick="fakeCTA()" 
-                            class="flex-1 md:flex-none px-8 py-5 text-lg font-semibold bg-white text-purple-700 rounded-3xl hover:scale-105 shadow-2xl flex items-center justify-center gap-x-3">
-                        <span>Launch demo now</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    
-                    <button onclick="watchVideo()" 
-                            class="flex-1 md:flex-none px-8 py-5 text-lg font-semibold border-2 border-white/60 hover:border-white rounded-3xl flex items-center justify-center gap-x-3">
-                        <i class="fa-solid fa-play"></i>
-                        <span>Watch 82-second demo</span>
-                    </button>
-                </div>
-                
-                <div class="flex items-center gap-x-8 text-sm">
-                    <div class="flex -space-x-4">
-                        <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center text-lg border-2 border-purple-700">🔥</div>
-                        <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center text-lg border-2 border-purple-700">🚀</div>
-                        <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center text-lg border-2 border-purple-700">🌐</div>
-                    </div>
-                    <div>
-                        <div class="font-semibold">Trusted by 14,872 builders</div>
-                        <div class="text-purple-200 text-xs">including xAI, Chainlink Labs &amp; Polygon</div>
-                    </div>
-                    <div class="h-10 w-px bg-white/30"></div>
-                    <div class="flex items-center gap-x-1 text-amber-400">
-                        ★★★★☆ <span class="text-white text-sm ml-1">4.98/5</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Hero Visual -->
-            <div class="relative flex justify-center">
-                <div class="absolute -inset-6 bg-gradient-to-br from-purple-400/30 to-pink-400/30 blur-3xl rounded-[4rem] -rotate-6"></div>
-                
-                <div class="relative bg-white/10 backdrop-blur-3xl border border-white/30 rounded-3xl p-4 shadow-2xl max-w-[420px] w-full">
-                    <div class="bg-[#1a0f2e] rounded-2xl p-6">
-                        <div class="flex justify-between mb-8">
-                            <div class="flex items-center gap-x-3">
-                                <div class="text-3xl">🔗</div>
-                                <div>
-                                    <div class="text-white font-semibold">Live Mesh Network</div>
-                                    <div class="text-purple-400 text-sm">12,459 nodes online</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="px-4 py-1 bg-green-400 text-black text-xs font-bold rounded-3xl">98.7% UPTIME</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Mock dashboard -->
-                        <div class="space-y-6">
-                            <div class="grid grid-cols-3 gap-4">
-                                <div class="bg-white/10 p-4 rounded-2xl text-center">
-                                    <div class="text-4xl mb-1">🧠</div>
-                                    <div class="text-xs text-purple-300">AI Models</div>
-                                    <div class="text-3xl font-semibold text-white">184</div>
-                                </div>
-                                <div class="bg-white/10 p-4 rounded-2xl text-center">
-                                    <div class="text-4xl mb-1">⛓️</div>
-                                    <div class="text-xs text-purple-300">Verified Blocks</div>
-                                    <div class="text-3xl font-semibold text-white">4.2M</div>
-                                </div>
-                                <div class="bg-white/10 p-4 rounded-2xl text-center">
-                                    <div class="text-4xl mb-1">🌍</div>
-                                    <div class="text-xs text-purple-300">Countries</div>
-                                    <div class="text-3xl font-semibold text-white">87</div>
-                                </div>
-                            </div>
-                            
-                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                                <div class="h-full w-[83%] bg-gradient-to-r from-purple-400 to-pink-400"></div>
-                            </div>
-                            
-                            <div class="text-center text-xs text-purple-300 font-medium">
-                                Next verification in <span class="font-mono text-white">14s</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- TRUST BAR -->
-    <div class="bg-white py-6 border-b">
-        <div class="max-w-screen-2xl mx-auto px-6">
-            <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-12 gap-y-6 opacity-75">
-                <div class="flex items-center gap-x-2 text-2xl font-medium">xAI</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">Chainlink</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">Polygon</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">Solana</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">Base</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">Arbitrum</div>
-                <div class="flex items-center gap-x-2 text-2xl font-medium">NEAR</div>
-            </div>
-        </div>
+<body class="bg-slate-50 font-sans">
+  <!-- NAVBAR (identical on all pages) -->
+  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-2xl font-bold text-slate-900">
+        <i class="fa-solid fa-cube text-emerald-600"></i> 
+        Mockify
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about_us.html" class="nav-link">About Us</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="faqs.html" class="nav-link">FAQs</a>
+        <a href="contact_us.html" class="nav-link">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-medium hidden md:block text-slate-700 hover:text-slate-900">Log in</a>
+        <a href="pricing.html" 
+           class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-2xl text-sm font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-upload"></i> Get Started
+        </a>
+      </div>
     </div>
+  </nav>
 
-    <!-- FEATURES -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="max-w-screen-2xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="px-5 py-2 text-purple-600 bg-purple-100 rounded-3xl text-sm font-semibold">POWERFUL BY DESIGN</span>
-                <h2 class="text-4xl font-semibold mt-4 section-header">Everything you need.<br>Nothing you don’t.</h2>
-                <p class="mt-4 text-gray-600 max-w-md mx-auto">Built from the ground up for the new era of decentralized intelligence.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-3xl card-hover border">
-                    <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-4xl mb-6">🔗</div>
-                    <h3 class="text-2xl font-semibold mb-3">Instant Mesh Linking</h3>
-                    <p class="text-gray-600">Connect any AI model to the global Meshchain in under 8 seconds. No gas fees on verification.</p>
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Zero-knowledge proofs</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Cross-chain bridging</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> 400ms latency</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-3xl card-hover border">
-                    <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center text-4xl mb-6">🛡️</div>
-                    <h3 class="text-2xl font-semibold mb-3">Tamper-Proof Execution</h3>
-                    <p class="text-gray-600">Every inference is cryptographically signed and stored on-chain. Auditable forever.</p>
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Fully verifiable outputs</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Fraud-proof mechanism</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Slashing protection</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-3xl card-hover border">
-                    <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-4xl mb-6">⚡</div>
-                    <h3 class="text-2xl font-semibold mb-3">Hyper-Scale Inference</h3>
-                    <p class="text-gray-600">Run 1000+ concurrent AI workloads across the mesh. Pay only for what you use.</p>
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> GPU sharing economy</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Dynamic load balancing</li>
-                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-purple-600"></i> Auto-scaling nodes</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="how" class="py-20">
-        <div class="max-w-screen-2xl mx-auto px-6">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-5">
-                    <span class="text-purple-600 font-medium">3 STEPS • 47 SECONDS</span>
-                    <h2 class="text-5xl font-semibold leading-none mt-3">From idea to<br>live mesh in<br>under a minute</h2>
-                    <p class="mt-6 text-gray-600">No complicated setup. No smart contract coding. Just pure decentralized intelligence.</p>
-                    
-                    <div class="mt-10 space-y-8">
-                        <div class="flex gap-6">
-                            <div class="shrink-0 w-9 h-9 bg-purple-600 text-white rounded-2xl flex items-center justify-center font-bold">1</div>
-                            <div>
-                                <div class="font-semibold text-xl">Connect your model</div>
-                                <p class="text-gray-500">Paste your OpenAI, Grok, Claude, or local model URL.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6">
-                            <div class="shrink-0 w-9 h-9 bg-purple-600 text-white rounded-2xl flex items-center justify-center font-bold">2</div>
-                            <div>
-                                <div class="font-semibold text-xl">Verify on Meshchain</div>
-                                <p class="text-gray-500">Our network runs a consensus round and mints a proof-of-inference NFT.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6">
-                            <div class="shrink-0 w-9 h-9 bg-purple-600 text-white rounded-2xl flex items-center justify-center font-bold">3</div>
-                            <div>
-                                <div class="font-semibold text-xl">Earn &amp; Scale</div>
-                                <p class="text-gray-500">Your model joins the global mesh. Others can query it and you earn tokens.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:col-span-7 bg-gray-900 rounded-3xl p-8 text-white">
-                    <div class="aspect-video bg-[#1c1328] rounded-2xl flex items-center justify-center relative overflow-hidden">
-                        <div class="text-center">
-                            <div class="text-8xl mb-6 animate-bounce">🔗</div>
-                            <div class="font-mono text-purple-400 text-sm tracking-[3px]">LIVE DEMO • CONNECTING...</div>
-                            <div class="mt-8 w-72 mx-auto h-2 bg-white/10 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 w-3/4 animate-[progress_2s_infinite_linear]"></div>
-                            </div>
-                        </div>
-                        <!-- Fake terminal -->
-                        <div class="absolute bottom-8 left-8 right-8 bg-black/60 backdrop-blur font-mono text-xs p-4 rounded-2xl text-green-400">
-                            &gt; model.deploy("grok-4-mesh")<br>
-                            &gt; [SUCCESS] Node ID: mf-8f3k9d2 • Verified in 0.8s
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-screen-2xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-semibold">Simple, transparent pricing</h2>
-                <p class="text-purple-400">Start free. Scale when you need to.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="bg-white/10 backdrop-blur rounded-3xl p-8">
-                    <div class="uppercase text-xs tracking-widest mb-2">Starter</div>
-                    <div class="text-5xl font-semibold mb-1">$0</div>
-                    <div class="text-purple-300">forever</div>
-                    <ul class="my-10 space-y-4 text-sm">
-                        <li>✅ 10 inferences / month</li>
-                        <li>✅ Public mesh access</li>
-                        <li>✅ Community support</li>
-                        <li>❌ No custom models</li>
-                    </ul>
-                    <button class="w-full py-4 text-white border border-white/40 hover:bg-white/10 rounded-3xl">Start free</button>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-8 relative -mt-4 shadow-2xl scale-105">
-                    <div class="absolute -top-3 right-8 bg-white text-purple-600 text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>
-                    <div class="uppercase text-xs tracking-widest mb-2 text-white/80">Pro</div>
-                    <div class="text-5xl font-semibold mb-1">$29</div>
-                    <div class="text-white/80">per month • billed yearly</div>
-                    <ul class="my-10 space-y-4 text-sm">
-                        <li>✅ Unlimited inferences</li>
-                        <li>✅ Private mesh nodes</li>
-                        <li>✅ Priority verification</li>
-                        <li>✅ API + webhooks</li>
-                        <li>✅ 24/7 priority support</li>
-                    </ul>
-                    <button onclick="fakeCTA()" class="w-full py-4 bg-white text-purple-700 font-semibold rounded-3xl">Upgrade to Pro</button>
-                </div>
-                
-                <div class="bg-white/10 backdrop-blur rounded-3xl p-8">
-                    <div class="uppercase text-xs tracking-widest mb-2">Enterprise</div>
-                    <div class="text-5xl font-semibold mb-1">Custom</div>
-                    <div class="text-purple-300">for teams &amp; DAOs</div>
-                    <ul class="my-10 space-y-4 text-sm">
-                        <li>✅ Dedicated validators</li>
-                        <li>✅ SLA 99.99%</li>
-                        <li>✅ On-chain governance</li>
-                        <li>✅ Custom integrations</li>
-                        <li>✅ White-glove onboarding</li>
-                    </ul>
-                    <button class="w-full py-4 text-white border border-white/40 hover:bg-white/10 rounded-3xl">Talk to sales</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="py-20 bg-white">
-        <div class="max-w-screen-2xl mx-auto px-6">
-            <h2 class="text-center text-4xl font-semibold mb-12">Real people. Real mesh.</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 border rounded-3xl">
-                    <p class="italic">"MeshForge literally changed how I build AI agents. I went from 3 isolated models to a living decentralized network overnight."</p>
-                    <div class="mt-8 flex items-center gap-x-3">
-                        <div class="w-10 h-10 bg-orange-200 rounded-2xl"></div>
-                        <div>
-                            <div class="font-semibold">@DefyGravity0427</div>
-                            <div class="text-sm text-gray-500">Founder, LOVA KLINK • Meshchain.ai</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 border rounded-3xl">
-                    <p class="italic">"The verification layer is insane. Every single inference is now provable on-chain. This is the missing piece of Web3 AI."</p>
-                    <div class="mt-8 flex items-center gap-x-3">
-                        <div class="w-10 h-10 bg-blue-200 rounded-2xl"></div>
-                        <div>
-                            <div class="font-semibold">Elena Voss</div>
-                            <div class="text-sm text-gray-500">Head of Research @ xAI</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 border rounded-3xl">
-                    <p class="italic">"Cut our inference costs by 87% while increasing reliability. MeshForge is the future of AI infrastructure."</p>
-                    <div class="mt-8 flex items-center gap-x-3">
-                        <div class="w-10 h-10 bg-emerald-200 rounded-2xl"></div>
-                        <div>
-                            <div class="font-semibold">Marcus Rivera</div>
-                            <div class="text-sm text-gray-500">CTO, Chainlink Labs</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <div class="bg-gradient-to-r from-purple-700 to-pink-600 py-16 text-white">
-        <div class="max-w-screen-2xl mx-auto px-6 text-center">
-            <h2 class="text-5xl font-semibold">Ready to join the mesh?</h2>
-            <p class="mt-4 text-xl max-w-lg mx-auto">Be part of the largest decentralized AI network on Earth. 14,872 builders already are.</p>
-            <button onclick="fakeCTA()" 
-                    class="mt-8 text-xl font-semibold px-12 py-6 bg-white text-purple-700 rounded-3xl hover:shadow-2xl hover:shadow-purple-500/50">
-                Start building for free →
-            </button>
-            <div class="text-xs mt-6 opacity-70">No credit card required • Cancel anytime</div>
-        </div>
+  <!-- HERO -->
+  <header class="hero-bg text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto">
+        Photorealistic FMCG renders.<br>Sent to you in <span class="text-emerald-400">24 hours</span>.
+      </h1>
+      <p class="mt-6 text-xl text-slate-300 max-w-2xl mx-auto">
+        No photography needed. Upload your pack artwork → get every angle, every lighting, customised to your brand.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+        <a href="pricing.html" 
+           class="bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-2xl text-lg font-semibold flex items-center justify-center gap-2">
+          <i class="fa-solid fa-upload"></i> Upload Artwork Now
+        </a>
+        <a onclick="watchDemo()" 
+           class="border border-white/70 hover:bg-white/10 px-8 py-4 rounded-2xl text-lg font-semibold flex items-center justify-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-play"></i> Watch 45-second demo
+        </a>
+      </div>
+      <p class="text-sm text-slate-400 mt-8">Trusted by 400+ brands • 24h delivery • No setup fees</p>
     </div>
+  </header>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-950 text-gray-400 py-16">
-        <div class="max-w-screen-2xl mx-auto px-6 grid md:grid-cols-5 gap-10">
-            <div>
-                <div class="flex items-center gap-x-3 text-white mb-6">
-                    <div class="w-9 h-9 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center text-3xl">🔗</div>
-                    <span class="text-3xl font-bold tracking-[-1px]" style="font-family: 'Space Grotesk', sans-serif;">MeshForge</span>
-                </div>
-                <p class="text-sm">The meshchain protocol for verifiable AI.</p>
-                <div class="text-xs mt-6">© 2026 LOVA KLINK • All rights reserved</div>
-            </div>
-            <div>
-                <div class="uppercase text-xs mb-4 text-purple-400 font-medium">Product</div>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">Features</a></li>
-                    <li><a href="#" class="hover:text-white">Roadmap</a></li>
-                    <li><a href="#" class="hover:text-white">Changelog</a></li>
-                    <li><a href="#" class="hover:text-white">Docs</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="uppercase text-xs mb-4 text-purple-400 font-medium">Company</div>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">About us</a></li>
-                    <li><a href="#" class="hover:text-white">Blog</a></li>
-                    <li><a href="#" class="hover:text-white">Careers</a></li>
-                    <li><a href="#" class="hover:text-white">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="uppercase text-xs mb-4 text-purple-400 font-medium">Community</div>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">Discord</a></li>
-                    <li><a href="#" class="hover:text-white">Telegram</a></li>
-                    <li><a href="#" class="hover:text-white">X / Twitter</a></li>
-                    <li><a href="#" class="hover:text-white">GitHub</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="text-sm font-medium text-white">Made with ❤️ for the decentralized future</div>
-                <p class="text-xs mt-6">This is a complete, fully responsive mockup website built in a single HTML file using Tailwind CSS. Copy, paste, and customize it for your own Meshchain.ai project!</p>
-                
-                <div onclick="copyCode()" class="mt-8 inline-flex items-center gap-x-2 text-purple-400 hover:text-purple-300 cursor-pointer text-sm font-medium">
-                    <i class="fa-solid fa-copy"></i>
-                    <span>COPY ENTIRE CODE TO CLIPBOARD</span>
-                </div>
-            </div>
+  <!-- HOW IT WORKS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">How Mockify Works</h2>
+      <div class="grid md:grid-cols-4 gap-10">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center text-4xl font-bold">1</div>
+          <h3 class="font-semibold mt-6 text-xl">Upload your artwork</h3>
+          <p class="text-slate-600 mt-3">PDF, AI or high-res files. Tell us your pack profile.</p>
         </div>
-    </footer>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center text-4xl font-bold">2</div>
+          <h3 class="font-semibold mt-6 text-xl">We build your 3D model</h3>
+          <p class="text-slate-600 mt-3">Our studio matches your exact branding and packaging.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center text-4xl font-bold">3</div>
+          <h3 class="font-semibold mt-6 text-xl">Render every angle</h3>
+          <p class="text-slate-600 mt-3">Studio-quality shots on white, lifestyle &amp; lifestyle backgrounds.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-emerald-100 text-emerald-600 rounded-3xl flex items-center justify-center text-4xl font-bold">4</div>
+          <h3 class="font-semibold mt-6 text-xl">Download in 24h</h3>
+          <p class="text-slate-600 mt-3">High-res files delivered straight to your inbox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Tailwind script initialization
-        function initializeTailwind() {
-            // This is already loaded via CDN
-            console.log('%c✅ Tailwind CSS ready – fully responsive mockup loaded!', 'color:#a855f7; font-family:monospace');
-        }
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('hamburger-icon');
-            
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.classList.replace('fa-bars', 'fa-xmark');
-            } else {
-                menu.classList.add('hidden');
-                icon.classList.replace('fa-xmark', 'fa-bars');
-            }
-        }
-        
-        // Dark mode toggle (demo)
-        function toggleDarkMode() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-            } else {
-                html.classList.add('dark');
-                // For demo purposes we just alert (you can expand this)
-                alert("🌙 Dark mode activated! (In a real project this would toggle full dark theme)");
-            }
-        }
-        
-        // Fake CTA click
-        function fakeCTA() {
-            const messages = [
-                "🚀 Redirecting to MeshForge dashboard...",
-                "🎉 Welcome to the mesh! Your first node is spinning up.",
-                "🔥 You are now part of 14,872 other builders."
-            ];
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < messages.length) {
-                    console.log(messages[i]);
-                    alert(messages[i]);
-                    i++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 800);
-        }
-        
-        // Fake video play
-        function watchVideo() {
-            alert("📺 Playing 82-second product demo video...\n\n(Imagine a beautiful animated explainer here showing the Meshchain in action 🔥)");
-        }
-        
-        // Copy entire page code to clipboard (meta fun)
-        function copyCode() {
-            const code = document.documentElement.outerHTML;
-            navigator.clipboard.writeText(code).then(() => {
-                const btn = document.querySelector('[onclick="copyCode()"]');
-                const original = btn.innerHTML;
-                btn.innerHTML = `<i class="fa-solid fa-check"></i> COPIED TO CLIPBOARD!`;
-                setTimeout(() => {
-                    btn.innerHTML = original;
-                }, 2500);
-            });
-        }
-        
-        // Keyboard shortcut hint
-        console.log('%c👋 Pro tip: Press "/" anytime on this demo to jump to search (future feature)', 'color:#c026d3; font-size:10px');
-        
-        // Initialize everything
-        window.onload = initializeTailwind;
-    </script>
+  <!-- FOOTER (identical on all pages) -->
+  <footer class="bg-slate-900 text-slate-400 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-y-8">
+      <div>
+        <div class="flex items-center gap-2 text-white text-2xl font-bold">
+          <i class="fa-solid fa-cube"></i> Mockify
+        </div>
+        <p class="mt-4 text-sm">Photorealistic product renders.<br>No camera required.</p>
+        <p class="mt-8 text-xs">© 2026 Mockify Pty Ltd. All rights reserved.</p>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Company</span>
+        <a href="about_us.html" class="block mt-4 hover:text-white">About Us</a>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Product</span>
+        <a href="pricing.html" class="block mt-4 hover:text-white">Pricing</a>
+        <a href="faqs.html" class="block mt-4 hover:text-white">FAQs</a>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Legal</span>
+        <a href="#" class="block mt-4 hover:text-white">Terms</a>
+        <a href="#" class="block mt-4 hover:text-white">Privacy</a>
+      </div>
+      <div class="md:text-right">
+        <a href="contact_us.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300">
+          <i class="fa-solid fa-envelope"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function watchDemo() {
+      alert("🎥 Demo video would play here in a real site.\n\n(Shows upload → 3D model → final renders in 24h)");
+    }
+    // Tailwind script already loaded
+  </script>
 </body>
 </html>
