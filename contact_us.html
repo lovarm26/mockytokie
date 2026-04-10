@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Mockify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans">
+  <!-- NAVBAR (copy from index.html) -->
+  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-2xl font-bold text-slate-900">
+        <i class="fa-solid fa-cube text-emerald-600"></i> Mockify
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about_us.html" class="nav-link">About Us</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="faqs.html" class="nav-link">FAQs</a>
+        <a href="contact_us.html" class="nav-link">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-medium hidden md:block text-slate-700 hover:text-slate-900">Log in</a>
+        <a href="pricing.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-2xl text-sm font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-upload"></i> Get Started
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-2xl mx-auto px-6 py-20">
+    <h1 class="text-5xl font-bold text-center">Get in touch</h1>
+    <p class="text-center text-slate-600 mt-4">We reply within a few hours during business days.</p>
+
+    <form class="mt-12 bg-white rounded-3xl p-8 shadow" onsubmit="event.preventDefault(); alert('✅ Message sent! (demo)');">
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-medium mb-2">First name</label>
+          <input type="text" class="w-full border rounded-2xl px-4 py-3" placeholder="Ryan">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Last name</label>
+          <input type="text" class="w-full border rounded-2xl px-4 py-3" placeholder="Smith">
+        </div>
+      </div>
+      <div class="mt-6">
+        <label class="block text-sm font-medium mb-2">Email</label>
+        <input type="email" class="w-full border rounded-2xl px-4 py-3" placeholder="you@brand.com">
+      </div>
+      <div class="mt-6">
+        <label class="block text-sm font-medium mb-2">Message</label>
+        <textarea rows="6" class="w-full border rounded-3xl px-4 py-3" placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button type="submit" 
+              class="mt-8 w-full bg-slate-900 text-white py-5 rounded-3xl text-xl font-semibold">
+        Send Message
+      </button>
+    </form>
+  </div>
+
+  <!-- FOOTER (copy from index.html) -->
+  <footer class="bg-slate-900 text-slate-400 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-y-8">
+      <div>
+        <div class="flex items-center gap-2 text-white text-2xl font-bold">
+          <i class="fa-solid fa-cube"></i> Mockify
+        </div>
+        <p class="mt-4 text-sm">Photorealistic product renders.<br>No camera required.</p>
+        <p class="mt-8 text-xs">© 2026 Mockify Pty Ltd. All rights reserved.</p>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Company</span>
+        <a href="about_us.html" class="block mt-4 hover:text-white">About Us</a>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Product</span>
+        <a href="pricing.html" class="block mt-4 hover:text-white">Pricing</a>
+        <a href="faqs.html" class="block mt-4 hover:text-white">FAQs</a>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Legal</span>
+        <a href="#" class="block mt-4 hover:text-white">Terms</a>
+        <a href="#" class="block mt-4 hover:text-white">Privacy</a>
+      </div>
+      <div class="md:text-right">
+        <a href="contact_us.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300">
+          <i class="fa-solid fa-envelope"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
